@@ -1,7 +1,11 @@
-// mi creo il mio server app con l'importazione della funzione express
+// mi importo la funzione express
 var exp = require('express');
-var app=exp();
-
+// mi importo il meccanismo del "body-parser"che sarà in grado di farci leggere il body inviati dai client( nel POST e PUT )
+var bodyParser = require('body-parser');
+// questo è il mio server con la funzione express()
+var app = exp();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // mi creo un array di json di users
 var users=[
